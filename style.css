@@ -1,0 +1,810 @@
+/* Custom styles for our Anime Theme */
+html, body {
+  overflow-x: clip;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F0F8FF; /* Alice Blue - a very light sky blue */
+    color: #2c3e50; /* Dark Navy/Slate */
+}
+.font-anime {
+    font-family: 'Mochiy Pop One', sans-serif;
+}
+.text-sakura {
+    color: #FFB7C5; /* Cherry Blossom Pink */
+}
+.bg-navy {
+    background-color: #2c3e50;
+}
+/* Style for the falling petals canvas */
+#sakura-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Keep the blossom animation visible over the countdown gate too. */
+    z-index: 101;
+    pointer-events: none; /* Allows clicks to go through the canvas */
+}
+/* For hiding the scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Pink and white countdown gate */
+.countdown-gate {
+    padding: 4px;
+    background: #fff7fa;
+}
+.countdown-card {
+    width: min(100%, 464px);
+    min-height: 244px;
+    padding: 17px 14px 18px;
+    border: 2px solid #f8d5e3;
+    border-radius: 17px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(223, 104, 158, .08);
+}
+.countdown-title {
+    margin: 0 0 15px;
+    color: #ed1682;
+    font-family: 'Mochiy Pop One', 'Poppins', sans-serif;
+    font-size: clamp(17px, 4vw, 21px);
+    line-height: 1.45;
+}
+.countdown-timers {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.timer-card {
+    display: flex;
+    width: 67px;
+    min-height: 68px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid #f7d1e2;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(85, 45, 67, .14);
+}
+.timer-number {
+    color: #ae21e9;
+    font-family: 'Mochiy Pop One', sans-serif;
+    font-size: 19px;
+    line-height: 1.1;
+}
+.timer-label {
+    margin-top: 3px;
+    color: #ef4b9b;
+    font-size: 9px;
+    line-height: 1.2;
+}
+.timer-icon {
+    height: 15px;
+    color: #f0449b;
+    font-size: 15px;
+    line-height: 15px;
+}
+.timer-star { color: #f1ca16; }
+.countdown-note {
+    width: min(100%, 270px);
+    margin: 18px auto 0;
+    padding: 9px 10px 8px;
+    border: 1px solid #f8e0ed;
+    border-radius: 15px;
+    background: #fff3f9;
+    color: #8f28c7;
+    font-size: 11px;
+    line-height: 1.5;
+}
+.countdown-note p { margin: 0; }
+.countdown-dots {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 7px;
+}
+.countdown-dots i {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #f176b5;
+}
+@media (max-width: 380px) {
+    .countdown-card { padding-inline: 8px; }
+    .countdown-timers { gap: 7px; }
+    .timer-card { width: 62px; }
+    .desktop-break { display: none; }
+}
+
+/* Sunny sunflower countdown, scaled for narrow screens */
+.countdown-gate {
+    overflow: hidden;
+    border: 0;
+    padding: 24px 18px;
+    background:
+      radial-gradient(ellipse at 50% 88%, rgba(255, 240, 199, .96), transparent 39%),
+      radial-gradient(ellipse at 7% 12%, rgba(255, 220, 131, .75), transparent 24%),
+      radial-gradient(ellipse at 94% 14%, rgba(255, 255, 255, .9), transparent 23%),
+      linear-gradient(180deg, #66c4ff 0%, #b8e6ff 44%, #fff4df 100%);
+}
+.countdown-card {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 900px);
+    min-height: 0;
+    padding: 20px 12px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+.countdown-gift {
+    display: block;
+    width: clamp(105px, 17vw, 205px);
+    height: auto;
+    margin: 0 auto 2px;
+    filter: drop-shadow(0 5px 4px rgba(137, 86, 22, .18));
+}
+.countdown-title {
+    margin: 0;
+    color: #7c3514;
+    font-family: 'Comic Sans MS', 'Segoe Print', cursive;
+    font-size: clamp(34px, 7vw, 76px);
+    font-weight: 800;
+    line-height: 1.03;
+    text-shadow: 0 2px 0 rgba(255,255,255,.6);
+}
+.countdown-title span { color: #e69a16; }
+.countdown-subtitle {
+    margin: 18px auto 24px;
+    color: #713713;
+    font-family: 'Comic Sans MS', 'Segoe Print', cursive;
+    font-size: clamp(14px, 2.1vw, 24px);
+    line-height: 1.45;
+}
+.countdown-timers { gap: clamp(8px, 1.2vw, 18px); }
+.timer-card {
+    width: clamp(70px, 10vw, 185px);
+    min-height: clamp(82px, 10vw, 158px);
+    border: 2px solid #ffcf7a;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #fff9e8, #ffedc9);
+    box-shadow: 0 8px 15px rgba(112, 74, 26, .22), inset 0 0 0 3px rgba(255,255,255,.65);
+}
+.timer-number {
+    color: #793510;
+    font-size: clamp(25px, 4.2vw, 58px);
+}
+.timer-label {
+    margin-top: 6px;
+    color: #713713;
+    font-size: clamp(9px, 1.4vw, 17px);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.timer-icon {
+    height: auto;
+    margin-bottom: 3px;
+    color: #793510;
+    font-size: clamp(14px, 2vw, 25px);
+    line-height: 1;
+}
+.timer-star { color: #e69a16; }
+.countdown-note {
+    width: auto;
+    margin: 25px auto 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #713713;
+    font-family: 'Comic Sans MS', 'Segoe Print', cursive;
+    font-size: clamp(13px, 1.8vw, 21px);
+}
+.countdown-dots { margin-top: 11px; color: #713713; font-size: 24px; align-items: center; }
+.countdown-dots i { width: 0; height: 2px; border-radius: 0; background: #a45a21; }
+.countdown-dots b { padding: 0 5px; font-weight: 400; }
+.sunflower {
+    position: absolute;
+    z-index: 0;
+    display: block;
+    font-size: clamp(42px, 10vw, 150px);
+    line-height: 1;
+    filter: drop-shadow(0 8px 9px rgba(78, 65, 20, .25));
+    pointer-events: none;
+}
+.sunflower-top-left { top: -2%; left: -2%; transform: rotate(-22deg); opacity: .72; }
+.sunflower-top-right { top: 5%; right: 8%; transform: rotate(20deg); font-size: clamp(26px, 5vw, 65px); }
+.sunflower-left { top: 38%; left: -3%; transform: rotate(-12deg); }
+.sunflower-right { top: 43%; right: -3%; transform: rotate(12deg); }
+.sunflower-bottom-left { bottom: 5%; left: 15%; transform: rotate(-14deg); font-size: clamp(32px, 6vw, 82px); }
+.sunflower-bottom-right { bottom: 2%; right: 13%; transform: rotate(16deg); font-size: clamp(48px, 9vw, 125px); }
+@media (max-width: 600px) {
+    .countdown-gate { padding: 18px 10px; }
+    .countdown-card { padding: 18px 4px; }
+    .countdown-gift { width: 104px; }
+    .countdown-title { font-size: clamp(31px, 9vw, 48px); }
+    .countdown-subtitle { max-width: 340px; margin: 14px auto 20px; }
+    .timer-card { width: calc((100vw - 68px) / 4); max-width: 98px; min-height: 87px; border-radius: 18px; }
+    .timer-number { font-size: clamp(25px, 8vw, 38px); }
+    .timer-label { font-size: clamp(8px, 2.4vw, 11px); }
+    .timer-icon { font-size: 17px; }
+    .countdown-note { max-width: 310px; margin-top: 20px; }
+    .sunflower-top-left { font-size: 90px; }
+    .sunflower-top-right { font-size: 54px; }
+    .sunflower-left { left: -12%; top: 23%; font-size: 58px; }
+    .sunflower-right { right: -12%; top: 27%; font-size: 58px; }
+    .sunflower-bottom-left { left: 1%; bottom: 5%; font-size: 44px; }
+    .sunflower-bottom-right { right: 0; bottom: 4%; font-size: 57px; }
+}
+
+/* Restore the earlier pink countdown layout */
+.countdown-gate {
+    overflow: hidden;
+    padding: 4px;
+    border: 0;
+    background: #fff7fa;
+}
+.countdown-card {
+    width: min(100%, 464px);
+    min-height: 244px;
+    padding: 17px 14px 18px;
+    border: 2px solid #f8d5e3;
+    border-radius: 17px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(223, 104, 158, .08);
+}
+.countdown-gift {
+    display: block;
+    width: auto;
+    margin: 0 auto 10px;
+    font-size: 42px;
+    line-height: 1;
+    filter: none;
+}
+.countdown-title {
+    margin: 0 0 10px;
+    color: #ed1682;
+    font-family: 'Mochiy Pop One', 'Poppins', sans-serif;
+    font-size: clamp(18px, 4vw, 22px);
+    line-height: 1.4;
+}
+.countdown-title span { color: #ed1682; }
+.countdown-subtitle {
+    max-width: 390px;
+    margin: 8px auto 17px;
+    color: #8b4568;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+}
+.countdown-timers { gap: 10px; }
+.timer-card {
+    width: 67px;
+    min-height: 68px;
+    border: 1.5px solid #f7d1e2;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(85, 45, 67, .14);
+}
+.timer-number {
+    color: #ae21e9;
+    font-size: 19px;
+}
+.timer-label {
+    margin-top: 3px;
+    color: #ef4b9b;
+    font-size: 9px;
+    font-weight: 400;
+    text-transform: none;
+}
+.timer-icon {
+    margin: 2px 0 0;
+    color: #f0449b;
+    font-size: 13px;
+}
+.timer-star { color: #e6bb11; }
+.countdown-note {
+    width: min(100%, 270px);
+    margin: 16px auto 0;
+    padding: 8px 10px;
+    border: 1px solid #f8e0ed;
+    border-radius: 15px;
+    background: #fff3f9;
+    color: #8f28c7;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    line-height: 1.5;
+}
+.countdown-dots { margin-top: 7px; }
+.countdown-dots i { width: 9px; height: 9px; border-radius: 50%; background: #f176b5; }
+.countdown-dots b { display: none; }
+.sunflower {
+    z-index: 0;
+    font-size: clamp(24px, 5vw, 42px);
+    filter: none;
+}
+.sunflower-top-left { top: 3%; left: 3%; opacity: .8; }
+.sunflower-top-right { top: 4%; right: 4%; font-size: clamp(22px, 4vw, 34px); }
+.sunflower-left { top: 43%; left: 2%; }
+.sunflower-right { top: 43%; right: 2%; }
+.sunflower-bottom-left { bottom: 3%; left: 5%; font-size: clamp(22px, 4vw, 34px); }
+.sunflower-bottom-right { bottom: 3%; right: 5%; font-size: clamp(24px, 5vw, 40px); }
+@media (max-width: 600px) {
+    .countdown-card { width: min(100%, 464px); padding: 16px 10px; }
+    .countdown-gift { width: auto; font-size: 38px; }
+    .countdown-title { font-size: clamp(17px, 5vw, 21px); }
+    .countdown-subtitle { font-size: 12px; }
+    .timer-card { width: calc((100vw - 92px) / 4); max-width: 67px; min-height: 68px; border-radius: 14px; }
+    .timer-number { font-size: clamp(17px, 5vw, 19px); }
+    .sunflower-left, .sunflower-right { font-size: 24px; }
+}
+
+/* Blooming birthday countdown design from the reference */
+.countdown-gate {
+    overflow: hidden;
+    padding: 20px 14px;
+    border: 0;
+    background:
+      radial-gradient(ellipse at 8% 95%, rgba(255, 248, 218, .9), transparent 37%),
+      radial-gradient(ellipse at 97% 5%, rgba(126, 235, 193, .9), transparent 45%),
+      radial-gradient(ellipse at 45% 50%, rgba(255, 255, 228, .8), transparent 52%),
+      linear-gradient(135deg, #d7f4ef 0%, #a4e5d0 45%, #52c8a5 100%);
+}
+.countdown-card {
+    width: min(100%, 940px);
+    min-height: 0;
+    padding: 12px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+.countdown-gift {
+    margin: 0 auto 6px;
+    font-size: clamp(48px, 7vw, 72px);
+}
+.countdown-title {
+    margin: 0;
+    color: #8a3728;
+    font-family: 'Mochiy Pop One', 'Poppins', sans-serif;
+    font-size: clamp(34px, 5.4vw, 62px);
+    line-height: 1.12;
+    text-shadow: 0 2px 0 rgba(255,255,255,.35);
+}
+.countdown-title span { color: #d7861e; }
+.countdown-subtitle {
+    max-width: 760px;
+    margin: 12px auto 22px;
+    color: #68412c;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(13px, 1.7vw, 18px);
+}
+.countdown-timers { gap: clamp(9px, 1.4vw, 16px); }
+.timer-card {
+    width: clamp(72px, 10vw, 150px);
+    min-height: clamp(80px, 10vw, 112px);
+    border: 2px solid rgba(255, 194, 93, .9);
+    border-radius: 22px;
+    background: linear-gradient(145deg, #fffbe9, #ffe9bd);
+    box-shadow: 0 7px 13px rgba(98, 91, 43, .2), inset 0 0 0 3px rgba(255,255,255,.56);
+}
+.timer-number {
+    color: #8a3d1d;
+    font-size: clamp(25px, 4vw, 42px);
+}
+.timer-label {
+    margin-top: 5px;
+    color: #69402a;
+    font-size: clamp(8px, 1.15vw, 12px);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.timer-icon {
+    margin-top: 3px;
+    color: #8a3d1d;
+    font-size: clamp(12px, 1.6vw, 18px);
+}
+.timer-star { color: #d99a13; }
+.countdown-note {
+    width: auto;
+    margin: 18px auto 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #69402a;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(11px, 1.35vw, 15px);
+}
+.countdown-dots { margin-top: 7px; }
+.sunflower {
+    display: block;
+    width: clamp(48px, 8vw, 88px);
+    height: auto;
+    filter: drop-shadow(0 3px 3px rgba(25, 34, 15, .18));
+}
+.sunflower-top-left { top: 4%; left: 2%; }
+.sunflower-top-right { top: 5%; right: 5%; width: clamp(37px, 5vw, 58px); }
+.sunflower-left { top: 44%; left: 1%; }
+.sunflower-right { top: 45%; right: 1%; }
+.sunflower-bottom-left { bottom: 3%; left: 6%; width: clamp(40px, 6vw, 66px); }
+.sunflower-bottom-right { bottom: 2%; right: 7%; width: clamp(58px, 8vw, 94px); }
+@media (max-width: 600px) {
+    .countdown-card { padding: 8px 2px; }
+    .countdown-title { font-size: clamp(27px, 8vw, 42px); }
+    .countdown-subtitle { max-width: 340px; margin: 11px auto 18px; }
+    .timer-card { width: calc((100vw - 78px) / 4); max-width: 94px; min-height: 78px; border-radius: 17px; }
+    .timer-number { font-size: clamp(22px, 7vw, 32px); }
+    .timer-label { font-size: clamp(7px, 2.2vw, 10px); }
+    .sunflower-top-left { top: 2%; left: 2%; width: 47px; }
+    .sunflower-top-right { top: 3%; right: 4%; width: 35px; }
+    .sunflower-left { left: 1%; top: 30%; width: 41px; }
+    .sunflower-right { right: 1%; top: 31%; width: 41px; }
+    .sunflower-bottom-left { left: 3%; bottom: 3%; width: 39px; }
+    .sunflower-bottom-right { right: 3%; bottom: 3%; width: 53px; }
+}
+
+/* Full sunflower birthday scene */
+.countdown-gate {
+    overflow: hidden;
+    padding: 18px 12px;
+    border: 0;
+    background:
+      radial-gradient(ellipse at 50% 92%, rgba(255, 226, 165, .95), transparent 36%),
+      radial-gradient(ellipse at 7% 4%, rgba(255, 233, 151, .8), transparent 23%),
+      radial-gradient(ellipse at 88% 18%, rgba(255, 255, 255, .78), transparent 24%),
+      radial-gradient(ellipse at 58% 12%, rgba(255, 255, 255, .45), transparent 33%),
+      linear-gradient(180deg, #50b9fa 0%, #9bd8ff 47%, #fff0cf 100%);
+}
+.countdown-card {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 1020px);
+    min-height: 0;
+    padding: 10px 12px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+.countdown-gift {
+    display: block;
+    width: clamp(112px, 16vw, 190px);
+    height: auto;
+    margin: 0 auto 0;
+    filter: drop-shadow(0 7px 7px rgba(98, 60, 22, .22));
+}
+.countdown-title {
+    margin: 0;
+    color: #73351f;
+    font-family: 'Segoe Script', 'Brush Script MT', 'Comic Sans MS', cursive;
+    font-size: clamp(39px, 6vw, 72px);
+    font-style: italic;
+    font-weight: 700;
+    line-height: .99;
+    text-shadow: 0 2px 1px rgba(255,255,255,.56);
+}
+.countdown-title .blooming-title {
+    display: inline-block;
+    color: #9c4a14;
+    font-size: 1.18em;
+}
+.countdown-title > span:last-child { color: #d68514; font-size: .7em; }
+.countdown-subtitle {
+    max-width: 850px;
+    margin: 14px auto 24px;
+    color: #653a23;
+    font-family: 'Segoe Print', 'Comic Sans MS', cursive;
+    font-size: clamp(14px, 2vw, 24px);
+    line-height: 1.4;
+}
+.countdown-timers { gap: clamp(9px, 1.1vw, 17px); }
+.timer-card {
+    width: clamp(74px, 10vw, 188px);
+    min-height: clamp(86px, 10vw, 158px);
+    border: 2px solid #ffd17d;
+    border-radius: 26px;
+    background: linear-gradient(145deg, #fff9e6 0%, #ffedc8 100%);
+    box-shadow: 0 8px 16px rgba(116, 78, 27, .22), inset 0 0 0 3px rgba(255,255,255,.58);
+}
+.timer-number {
+    color: #773716;
+    font-size: clamp(26px, 4.3vw, 58px);
+}
+.timer-label {
+    margin-top: 6px;
+    color: #713b20;
+    font-size: clamp(8px, 1.2vw, 16px);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.timer-icon {
+    margin: 3px 0 0;
+    color: #733817;
+    font-size: clamp(14px, 2vw, 24px);
+}
+.timer-star { color: #e0a813; }
+.countdown-note {
+    width: auto;
+    margin: 22px auto 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #663920;
+    font-family: 'Segoe Print', 'Comic Sans MS', cursive;
+    font-size: clamp(12px, 1.7vw, 21px);
+}
+.countdown-dots { gap: 12px; margin-top: 6px; color: #733817; font-size: 23px; }
+.countdown-dots i { width: 42px; height: 2px; border-radius: 0; background: #9d642e; }
+.countdown-dots b { display: block; font-weight: 400; }
+.sunflower {
+    z-index: 0;
+    display: block;
+    width: clamp(55px, 11vw, 205px);
+    height: auto;
+    filter: drop-shadow(0 7px 8px rgba(76, 63, 24, .22));
+}
+.sunflower-top-left { top: -8%; left: -4%; width: clamp(72px, 12vw, 180px); opacity: .82; }
+.sunflower-top-right { top: 5%; right: 8%; width: clamp(43px, 7vw, 105px); }
+.sunflower-left { top: 38%; left: -5%; width: clamp(100px, 18vw, 300px); }
+.sunflower-right { top: 43%; right: -5%; width: clamp(95px, 17vw, 285px); }
+.sunflower-bottom-left { bottom: -7%; left: 20%; width: clamp(70px, 11vw, 175px); }
+.sunflower-bottom-right { bottom: -8%; right: 17%; width: clamp(92px, 15vw, 245px); }
+@media (max-width: 600px) {
+    .countdown-gate { padding: 12px 8px; }
+    .countdown-card { padding: 8px 0; }
+    .countdown-gift { width: 108px; }
+    .countdown-title { font-size: clamp(35px, 10vw, 52px); line-height: 1.02; }
+    .countdown-title .blooming-title { font-size: 1.08em; }
+    .countdown-subtitle { max-width: 340px; margin: 12px auto 19px; font-size: 13px; }
+    .timer-card { width: calc((100vw - 72px) / 4); max-width: 94px; min-height: 82px; border-radius: 18px; }
+    .timer-number { font-size: clamp(22px, 7vw, 32px); }
+    .timer-label { margin-top: 4px; font-size: clamp(7px, 2vw, 9px); }
+    .timer-icon { font-size: 15px; }
+    .countdown-note { max-width: 300px; margin-top: 18px; font-size: 11px; }
+    .sunflower-top-left { top: 0; left: -22px; width: 75px; }
+    .sunflower-top-right { top: 1%; right: 1%; width: 43px; }
+    .sunflower-left { top: 38%; left: -54px; width: 100px; }
+    .sunflower-right { top: 42%; right: -55px; width: 100px; }
+    .sunflower-bottom-left { bottom: -14px; left: 2%; width: 65px; }
+    .sunflower-bottom-right { bottom: -19px; right: 0; width: 85px; }
+}
+
+/* Refine the gift and handwritten headline */
+.countdown-gift {
+    width: clamp(125px, 15vw, 205px);
+    max-height: 190px;
+    object-fit: contain;
+    margin-bottom: 2px;
+    background: transparent;
+    filter: none;
+}
+.countdown-title {
+    font-family: 'Segoe Print', 'Comic Sans MS', cursive;
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(40px, 5.5vw, 66px);
+    line-height: 1.08;
+    letter-spacing: -.035em;
+}
+.countdown-title .blooming-title {
+    font-size: clamp(52px, 7vw, 86px);
+    font-weight: 700;
+    letter-spacing: -.045em;
+}
+@media (max-width: 600px) {
+    .countdown-gift { width: 110px; max-height: 110px; }
+    .countdown-title { font-size: clamp(32px, 8.2vw, 44px); letter-spacing: -.04em; }
+    .countdown-title .blooming-title { font-size: clamp(42px, 10vw, 54px); }
+    .sunflower-top-left { top: 5px; left: 5px; width: 72px; }
+    .sunflower-top-right { top: 5px; right: 5px; width: 72px; }
+    .sunflower-left { top: 39%; left: 5px; width: 72px; }
+    .sunflower-right { top: 41%; right: 5px; width: 72px; }
+    .sunflower-bottom-left { bottom: 5px; left: 6px; width: 72px; }
+    .sunflower-bottom-right { bottom: 5px; right: 6px; width: 72px; }
+}
+
+body.main-audio-loading > header,
+body.main-audio-loading > main,
+body.main-audio-loading > footer,
+body.main-audio-loading > #sakura-canvas {
+    visibility: hidden;
+}
+.music-widget {
+    position: fixed;
+    z-index: 130;
+    right: 18px;
+    bottom: 18px;
+    width: min(360px, calc(100vw - 28px));
+}
+.music-widget[hidden] { display: none; }
+.music-panel {
+    position: relative;
+    padding: 15px 17px 12px;
+    border: 1px solid rgba(255,255,255,.7);
+    border-radius: 23px;
+    background: linear-gradient(132deg, rgba(75, 36, 151, .97), rgba(218, 49, 137, .97));
+    box-shadow: 0 12px 32px rgba(27, 10, 62, .34), inset 0 1px 0 rgba(255,255,255,.2);
+    color: #fff;
+    backdrop-filter: blur(12px);
+}
+.music-player-heading {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-height: 46px;
+    padding-right: 22px;
+}
+.music-cover {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    border: 1px solid rgba(255,255,255,.72);
+    border-radius: 13px;
+    object-fit: cover;
+    object-position: center 30%;
+}
+.music-track-copy {
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: 2px;
+    line-height: 1.2;
+}
+.music-track-copy strong {
+    overflow: hidden;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.music-track-copy span { color: rgba(255,255,255,.88); font-size: 11px; }
+.music-equalizer { display: flex; height: 20px; align-items: center; gap: 3px; }
+.music-equalizer i { width: 3px; height: 8px; border-radius: 4px; background: #9ef2dc; }
+.music-equalizer i:nth-child(2) { height: 15px; }
+.music-equalizer i:nth-child(3) { height: 11px; }
+.music-equalizer i:nth-child(4) { height: 6px; }
+.music-widget.is-playing .music-equalizer i { animation: music-bars .7s ease-in-out infinite alternate; }
+.music-widget.is-playing .music-equalizer i:nth-child(2) { animation-delay: -.35s; }
+.music-widget.is-playing .music-equalizer i:nth-child(3) { animation-delay: -.18s; }
+@keyframes music-bars { to { transform: scaleY(.45); } }
+.music-toggle {
+    position: absolute;
+    z-index: 3;
+    top: -13px;
+    right: -12px;
+    display: grid;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    border: 1px solid rgba(255,255,255,.9);
+    border-radius: 50%;
+    background: linear-gradient(145deg, #7738c1, #e33d9c);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(34,10,70,.3);
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+}
+.music-controls-row { display: flex; align-items: center; gap: 12px; margin-top: 12px; }
+.music-play {
+    display: grid;
+    width: 47px;
+    height: 47px;
+    flex: 0 0 47px;
+    place-items: center;
+    border: 2px solid rgba(255,255,255,.9);
+    border-radius: 50%;
+    background: linear-gradient(145deg, #9e8dff, #ee6bd0);
+    box-shadow: 0 2px 9px rgba(24, 10, 57, .27), inset 0 1px 3px rgba(255,255,255,.55);
+    color: #fff;
+    font-size: 17px;
+    cursor: pointer;
+}
+.music-timeline { min-width: 0; flex: 1; }
+.music-times { display: flex; justify-content: space-between; margin-bottom: 4px; color: rgba(255,255,255,.9); font-size: 11px; }
+.music-range {
+    display: block;
+    width: 100%;
+    height: 5px;
+    margin: 0;
+    appearance: none;
+    border: 0;
+    border-radius: 999px;
+    background: linear-gradient(to right, #75e8e0 var(--range-progress, 0%), rgba(255,255,255,.4) var(--range-progress, 0%));
+    cursor: pointer;
+}
+.music-range::-webkit-slider-thumb {
+    width: 15px;
+    height: 15px;
+    appearance: none;
+    border: 0;
+    border-radius: 50%;
+    background: #ffd265;
+    box-shadow: 0 1px 4px rgba(28,12,59,.28);
+}
+.music-range::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border: 0;
+    border-radius: 50%;
+    background: #ffd265;
+    box-shadow: 0 1px 4px rgba(28,12,59,.28);
+}
+.music-volume-row { display: flex; align-items: center; gap: 9px; margin: 12px 20px 0 1px; color: #fff; font-size: 15px; }
+.music-volume { height: 3px; }
+.music-volume::-webkit-slider-thumb { width: 13px; height: 13px; }
+.music-volume::-moz-range-thumb { width: 13px; height: 13px; }
+.music-locked-note { display: none; margin: 14px 2px 2px; color: rgba(255,255,255,.92); font-size: 12px; }
+.music-widget.locked .music-locked-note { display: block; }
+.music-widget.locked .music-controls-row,
+.music-widget.locked .music-volume-row { display: none; }
+.music-widget.collapsed { width: 58px; height: 58px; }
+.music-widget.collapsed .music-panel { display: none; }
+.music-widget.collapsed .music-toggle {
+    position: static;
+    width: 58px;
+    height: 58px;
+    transform: none;
+    border: 1px solid rgba(255,255,255,.75);
+    border-radius: 50%;
+    background: linear-gradient(145deg, #7738c1, #e33d9c);
+    box-shadow: 0 7px 20px rgba(34,10,70,.35);
+    font-size: 25px;
+}
+@media (max-width: 480px) {
+    .music-widget { right: 12px; bottom: 12px; width: min(350px, calc(100vw - 24px)); }
+    .music-panel { padding: 13px 14px 11px; border-radius: 20px; }
+    .music-track-copy strong { font-size: 14px; }
+    .music-controls-row { gap: 10px; margin-top: 10px; }
+    .music-toggle { right: -4px; }
+}
+
+/* Custom styles for our Anime Theme */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F0F8FF; /* Alice Blue - a very light sky blue */
+    color: #2c3e50; /* Dark Navy/Slate */
+}
+.font-anime {
+    font-family: 'Mochiy Pop One', sans-serif;
+}
+.text-sakura {
+    color: #FFB7C5; /* Cherry Blossom Pink */
+}
+.bg-navy {
+    background-color: #2c3e50;
+}
+/* Style for the falling petals canvas */
+#sakura-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Keep the blossom animation visible over the countdown gate too. */
+    z-index: 101;
+    pointer-events: none; /* Allows clicks to go through the canvas */
+}
+/* For hiding the scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+

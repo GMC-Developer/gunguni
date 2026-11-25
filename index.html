@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Something Special ✨</title>
+
+  <!-- This script pulls in Tailwind CSS for styling -->
+  <script src="vendor/tailwind.js"></script>
+
+  <!-- These are for the animations and photo gallery -->
+  <link href="vendor/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/lightgallery.min.css" />
+
+  <!-- Google Fonts for the Anime look -->
+  <link href="vendor/fonts.css" rel="stylesheet">
+
+  <!-- Link to your new external CSS file -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Surprise Countdown Gate: shows until the day arrives, then removes itself -->
+<div id="countdown-gate" class="countdown-gate fixed inset-0 z-[100] flex items-center justify-center px-4">
+  <img class="sunflower sunflower-top-left" src="img/sunflower-realistic.svg" alt="" aria-hidden="true">
+  <img class="sunflower sunflower-top-right" src="img/sunflower-realistic.svg" alt="" aria-hidden="true">
+  <img class="sunflower sunflower-left" src="img/sunflower-realistic.svg" alt="" aria-hidden="true">
+  <img class="sunflower sunflower-right" src="img/sunflower-realistic.svg" alt="" aria-hidden="true">
+  <img class="sunflower sunflower-bottom-left" src="img/sunflower-realistic.svg" alt="" aria-hidden="true">
+  <img class="sunflower sunflower-bottom-right" src="img/sunflower-realistic.svg" alt="" aria-hidden="true">
+  <div class="countdown-card text-center">
+    <img class="countdown-gift" src="img/gift-bloom.png" alt="A golden birthday gift">
+    <h1 class="countdown-title">Something Special is<br><span class="blooming-title">Blooming, Gunguni</span> <span aria-hidden="true">♡</span></h1>
+    <p class="countdown-subtitle">A little surprise is on its way. Come back when the time is right. ♡</p>
+    <div class="countdown-timers">
+      <div class="timer-card">
+        <div id="gate-days" class="timer-number">--</div>
+        <div class="timer-label">Days</div><span class="timer-icon" aria-hidden="true">▦</span>
+      </div>
+      <div class="timer-card">
+        <div id="gate-hours" class="timer-number">--</div>
+        <div class="timer-label">Hours</div><span class="timer-icon" aria-hidden="true">◷</span>
+      </div>
+      <div class="timer-card">
+        <div id="gate-mins" class="timer-number">--</div>
+        <div class="timer-label">Minutes</div><span class="timer-icon" aria-hidden="true">♛</span>
+      </div>
+      <div class="timer-card">
+        <div id="gate-secs" class="timer-number">--</div>
+        <div class="timer-label">Seconds</div><span class="timer-icon timer-star" aria-hidden="true">🗲</span>
+      </div>
+    </div>
+    <div class="countdown-note">
+      <p>This page will open on its own when the moment arrives.</p>
+      <div class="countdown-dots" aria-hidden="true"><i></i><b>♡</b><i></i></div>
+    </div>
+  </div>
+</div>
+
+<!-- Canvas for the falling cherry blossoms -->
+<canvas id="sakura-canvas"></canvas>
+
+<!-- Section 1: Hero Welcome -->
+<header class="h-screen relative flex items-center justify-center text-white overflow-hidden">
+  <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
+    <source src="img/sa.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+  <div class="text-center z-10 p-4" data-aos="fade-in" data-aos-duration="1500">
+    <h1 class="text-5xl md:text-7xl font-anime drop-shadow-lg">Happy Birthday, Gun Gun!</h1>
+    <p class="mt-4 text-xl font-semibold">Celebrating 18 beautiful years of you — and every smile that came with them.</p>
+    <div id="countdown" class="mt-6 text-2xl font-semibold tracking-widest leading-relaxed"></div>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main class="container mx-auto p-6 md:p-12">
+
+  <!-- Section 2: A Letter For You -->
+  <section class="my-16 md:my-24 max-w-3xl mx-auto text-center" data-aos="fade-up">
+    <h2 class="text-4xl md:text-5xl font-anime text-sakura mb-8 drop-shadow-sm">A Special Message For You</h2>
+    <div class="text-left text-lg leading-relaxed space-y-4 bg-white p-8 rounded-lg shadow-lg">
+      
+      <p>Hey গুনগুনি,</p>
+      <p>আজ ২৭ জানুয়ারি, তোমার জীবনের একটা খুব সুন্দর দিন। এই দিনটা তোমার জন্য অনেক আনন্দ আর ভালো লাগার মুহূর্ত নিয়ে আসুক। তোমার মনের সব ইচ্ছে পূরণ হোক, প্রতিটা দিন কাটুক হাসি-খুশিতে, আর তোমার দেখা প্রতিটা স্বপ্ন একদিন সত্যি হোক।</p>
+      <p>তুমি যেমন, ঠিক তেমনই থেকো—মিষ্টি, হাসিখুশি আর নিজের মতো। তোমার হাসি সাধারণ দিনগুলোকেও সুন্দর করে তোলে। তোমার এই মিষ্টি স্বভাব আর হাসিখুশি মনটা সবসময় এমনই থাকুক</p>
+      <p>সবসময় ভালো থেকো, মন খুলে হাসো আর নিজের মতো করে এগিয়ে চলো। জীবনের প্রতিটা নতুন দিন তোমার জন্য নতুন আনন্দ, নতুন অভিজ্ঞতা আর অনেক সুন্দর স্মৃতি নিয়ে আসুক।</p>
+      <p>শুভ ১৮তম জন্মদিন, গুনগুনি! ❤️</p>
+      <p>
+
+তোমার জীবনটা সূর্যমুখী ফুলের মতো সুন্দর আর রঙিন হোক। সবসময় এভাবেই হাসিখুশি থেকো। 🌻</p>
+      <p class="text-right mt-8">
+        With love 💝,<br>Asim
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 3: The Timeline -->
+  <section class="my-16 md:my-24">
+    <h2 class="text-4xl md:text-5xl font-anime text-center mb-12" data-aos="fade-up">Your Story Arc</h2>
+    <div class="space-y-16">
+      <!-- Timeline Item 1 -->
+      <div class="flex flex-col md:flex-row items-center gap-8" data-aos="fade-right">
+        
+        <img src="img/img1.jpg" alt="Add photo 1" class="w-full md:w-1/2 rounded-lg shadow-xl border-4 border-white"> <!--replce img1.png with name of your img-->
+        <div class="text-center md:text-left">
+          
+          <h3 class="text-2xl font-anime text-sakura">The Smile That Started It All</h3>
+          <p class="mt-2 text-lg">15 November 2026 — that red saree smile. The moment that stays in my mind.</p>
+            <br>
+        </div>
+      </div>
+      <!-- Timeline Item 2 -->
+      <div class="flex flex-col md:flex-row-reverse items-center gap-8" data-aos="fade-left">
+        
+        <img src="img/img2.jpg" alt="Add photo 2" class="w-full md:w-1/2 rounded-lg shadow-xl border-4 border-white">
+        <div class="text-center md:text-right">
+          
+          <h3 class="text-2xl font-anime text-sakura">Blue Saree Days</h3>
+          <p class="mt-2 text-lg">21 October 2026 — royal blue saree, mirror selfie, and that calm, pretty smile.</p>
+         <br>
+        </div>
+      </div>
+      <!-- Timeline Item 3 (NEW) -->
+      <div class="flex flex-col md:flex-row items-center gap-8" data-aos="fade-right">
+        <img src="img/img3.jpg" alt="Add photo 3" class="w-full md:w-1/2 rounded-lg shadow-xl border-4 border-white">
+        <div class="text-center md:text-left">
+          <h3 class="text-2xl font-anime text-sakura">Out in the Daylight</h3>
+          <p class="mt-2 text-lg">30 August 2026 — black floral top, heart pendant, and the outdoors suiting you perfectly.</p>
+         <br>
+        </div>
+      </div>
+      <!-- Timeline Item 4 (NEW) -->
+      <div class="flex flex-col md:flex-row-reverse items-center gap-8" data-aos="fade-left">
+        <img src="img/img4.jpg" alt="Add photo4" class="w-full md:w-1/2 rounded-lg shadow-xl border-4 border-white">
+        <div class="text-center md:text-right">
+          <h3 class="text-2xl font-anime text-sakura">Teal &amp; Jhumkas</h3>
+          <p class="mt-2 text-lg">10 November 2026 — teal embroidered kurta, silver jhumkas, and a look that says it all.</p>
+            <br>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Your Favourite Photos of your loved Ones (NEW SECTION) -->
+  <section class="my-16 md:my-24">
+    <h2 class="text-4xl md:text-5xl font-anime text-center mb-12" data-aos="fade-up">Hall of Fame</h2>
+    <div class="relative">
+      <!-- Scroll Buttons -->
+      <button id="scroll-left-btn" class="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white rounded-full p-2 shadow-md transition-opacity opacity-0 md:opacity-100">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sakura" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+      </button>
+      <button id="scroll-right-btn" class="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white rounded-full p-2 shadow-md transition-opacity opacity-0 md:opacity-100">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sakura" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+      </button>
+
+      <!-- Scrollable Container -->
+      <div id="hall-of-fame-scroller" class="flex overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide p-4 -mx-4">
+        <div class="flex snap-x snap-mandatory gap-8">
+          <!--  Card 1 -->
+          <div class="snap-center flex-shrink-0 w-[78vw] max-w-[320px] sm:w-[45vw] md:w-[30vw] lg:w-[23vw]" data-aos="fade-up" data-aos-delay="100">
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+              <img src="img/image1.jpg" alt="Denim Days" class="w-full aspect-[3/4] object-cover object-top rounded-md mb-4"> 
+              <h3 class="text-2xl font-anime text-sakura">Denim Days</h3>
+              <p class="mt-2">"Denim jacket, pearl necklace, and that easy smile.”"</p>
+            </div>
+          </div>
+          <!--  Card 2 -->
+          <div class="snap-center flex-shrink-0 w-[78vw] max-w-[320px] sm:w-[45vw] md:w-[30vw] lg:w-[23vw]" data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+              <img src="img/image2.jpg" alt="Pretty in Pink" class="w-full aspect-[3/4] object-cover object-top rounded-md mb-4">
+              <h3 class="text-2xl font-anime text-sakura">Pretty in Pink</h3>
+              <p class="mt-2">"Bright pink kurta, side braid, and the sweetest smile."</p>
+            </div>
+          </div>
+          <!--  Card 3 -->
+          <div class="snap-center flex-shrink-0 w-[78vw] max-w-[320px] sm:w-[45vw] md:w-[30vw] lg:w-[23vw]" data-aos="fade-up" data-aos-delay="300">
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+              <img src="img/image3.jpg" alt="Soft Smile" class="w-full aspect-[3/4] object-cover object-top rounded-md mb-4">
+              <h3 class="text-2xl font-anime text-sakura">Soft Smile</h3>
+              <p class="mt-2">"Teal kurta and a pink curtain — simple, and so pretty."</p>
+            </div>
+          </div>
+          <!--  Card 4 -->
+          <div class="snap-center flex-shrink-0 w-[78vw] max-w-[320px] sm:w-[45vw] md:w-[30vw] lg:w-[23vw]" data-aos="fade-up" data-aos-delay="400">
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+              <img src="img/image4.jpg" alt="Red Bandhani" class="w-full aspect-[3/4] object-cover object-top rounded-md mb-4">
+              <h3 class="text-2xl font-anime text-sakura">Red Bandhani</h3>
+              <p class="mt-2">"Red bandhani saree, jhumkas, and a smile that lights up the room."</p>
+            </div>
+          </div>
+          <!--  Card 5 -->
+          <div class="snap-center flex-shrink-0 w-[78vw] max-w-[320px] sm:w-[45vw] md:w-[30vw] lg:w-[23vw]" data-aos="fade-up" data-aos-delay="500">
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+              <img src="img/image5.jpg" alt="Mirror, Mirror" class="w-full aspect-[3/4] object-cover object-top rounded-md mb-4">
+              <h3 class="text-2xl font-anime text-sakura">Mirror, Mirror</h3>
+              <p class="mt-2">"Full blue saree look in the mirror — graceful as always."</p>
+            </div>
+          </div>
+          <!-- Card 6 -->
+          <div class="snap-center flex-shrink-0 w-[78vw] max-w-[320px] sm:w-[45vw] md:w-[30vw] lg:w-[23vw]" data-aos="fade-up" data-aos-delay="600">
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+              <img src="img/image6.jpg" alt="Festival Glow" class="w-full aspect-[3/4] object-cover object-top rounded-md mb-4">
+              <h3 class="text-2xl font-anime text-sakura">Festival Glow</h3>
+              <p class="mt-2">"Festive teal outfit, hand in hair, glowing as ever."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: The Gallery -->
+  <section class="my-16 md:my-24">
+    <h2 class="text-4xl md:text-5xl font-anime text-center mb-12" data-aos="fade-up">The Y.V.A. Collection</h2>
+    <p class="text-center text-lg -mt-8 mb-12">(Your Very-own Adventures)</p>
+    <div id="lightgallery" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <a href="img/1.jpg" data-aos="zoom-in" class="block w-full aspect-[3/4]">
+        <img src="img/1.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover object-top border-4 border-white" alt="Memory 1">
+      </a>
+      <a href="img/2.jpg" data-aos="zoom-in" data-aos-delay="100" class="block w-full aspect-[3/4]">
+        <img src="img/2.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover object-top border-4 border-white" alt="Memory 2">
+      </a>
+      <a href="img/3.jpg" data-aos="zoom-in" data-aos-delay="200" class="block w-full aspect-[3/4]">
+        <img src="img/3.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover object-top border-4 border-white" alt="Memory 3">
+      </a>
+      <a href="img/4.jpg" data-aos="zoom-in" data-aos-delay="300" class="block w-full aspect-[3/4]">
+        <img src="img/4.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover object-top border-4 border-white" alt="Memory 4">
+      </a>
+      <!-- Second Row of Photos -->
+      <a href="img/5.jpg" data-aos="zoom-in" data-aos-delay="400" class="block w-full aspect-[3/4]">
+        <img src="img/5.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover object-top border-4 border-white" alt="Memory 5">
+      </a>
+      <a href="img/6.jpg" data-aos="zoom-in" data-aos-delay="500" class="block w-full aspect-[3/4]">
+        <img src="img/6.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover object-top border-4 border-white" alt="Memory 6">
+      </a>
+      <a href="img/7.jpg" data-aos="zoom-in" data-aos-delay="600" class="block w-full aspect-[3/4]">
+        <img src="img/7.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover object-top border-4 border-white" alt="Memory 7">
+      </a>
+      <a href="img/8.jpg" data-aos="zoom-in" data-aos-delay="700" class="block w-full aspect-[3/4]">
+        <img src="img/8.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover object-top border-4 border-white" alt="Memory 8">
+      </a>
+      <!-- Third Row of Photos -->
+      <a href="img/9.jpg" data-aos="zoom-in" data-aos-delay="800" class="block w-full aspect-[3/4]">
+        <img src="img/9.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover object-top border-4 border-white" alt="Memory 9">
+      </a>
+      <a href="img/10.jpg" data-aos="zoom-in" data-aos-delay="900" class="block w-full aspect-[3/4]">
+        <img src="img/10.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover object-top border-4 border-white" alt="Memory 10">
+      </a>
+      <a href="img/11.jpg" data-aos="zoom-in" data-aos-delay="1000" class="block w-full aspect-[3/4]">
+        <img src="img/11.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover object-top border-4 border-white" alt="Memory 11">
+      </a>
+      <a href="img/12.jpg" data-aos="zoom-in" data-aos-delay="1100" class="block w-full aspect-[3/4]">
+        <img src="img/12.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover object-top border-4 border-white" alt="Memory 12">
+      </a>
+    </div>
+  </section>
+
+    <!-- Section 6: Finale -->
+    <section class="my-16 md:my-24" data-aos="fade-up">
+        <h2 class="text-4xl md:text-5xl font-anime text-center mb-4">Happy Birthday Gun Gun</h2>
+        <div class="max-w-4xl mx-auto rounded-lg shadow-2xl overflow-hidden bg-navy">
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-navy text-white p-8 text-center">
+  <p>Enjoy your day to the fullest GunGuni.</p>
+  <p class="text-sm opacity-70 mt-2">❤❤❤</p>
+</footer>
+
+<audio id="background-music" preload="none" loop></audio>
+<div id="music-widget" class="music-widget collapsed" hidden>
+  <button id="music-toggle" class="music-toggle" type="button" aria-label="Open music player" aria-expanded="false">♫</button>
+  <section id="music-panel" class="music-panel" aria-label="Background music player">
+    <div class="music-player-heading">
+      <img class="music-cover" src="music.webp" alt="">
+      <div class="music-track-copy">
+        <strong>গুনগুনি 🌻❤️</strong>
+        <span>শুভ জন্মদিন গুনি 💖</span>
+      </div>
+      <div class="music-equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    </div>
+    <p class="music-locked-note">Music will be available when the countdown ends ♡</p>
+    <div class="music-controls-row">
+      <button id="music-play" class="music-play" type="button" aria-label="Play music">▶</button>
+      <div class="music-timeline">
+        <div class="music-times"><span id="music-current-time">0:00</span><span id="music-duration">0:00</span></div>
+        <input id="music-seek" class="music-range" type="range" min="0" max="100" value="0" aria-label="Seek through song">
+      </div>
+    </div>
+    <div class="music-volume-row">
+      <span aria-hidden="true">♪</span>
+      <input id="music-volume" class="music-range music-volume" type="range" min="0" max="1" step="0.01" value="0.75" aria-label="Volume">
+      <span aria-hidden="true">♫</span>
+    </div>
+  </section>
+</div>
+
+<!-- These scripts are for the animations and photo gallery -->
+<script src="vendor/aos.js"></script>
+<script src="vendor/lightgallery.min.js"></script>
+
+<!-- Link to your new external JavaScript file -->
+<script src="script.js"></script>
+</body>
+</html>
