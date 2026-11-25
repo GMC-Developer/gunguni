@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     if (countdownLocked) {
         if (musicWidget) {
-            musicWidget.hidden = false;
+            musicWidget.hidden = true;
             musicWidget.classList.add('locked');
         }
     } else {
